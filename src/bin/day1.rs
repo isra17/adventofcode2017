@@ -5,7 +5,7 @@ fn sum_digits(digits: &str, offset: usize) -> u32 {
     let offset = nums.iter().cycle().skip(offset);
     let pairs = nums.iter().zip(offset);
     let repeated = pairs.filter(|&(a, b)| a == b).map(|(a, _)| a);
-    repeated.fold(0, std::ops::Add::add)
+    repeated.sum()
 }
 
 fn sum_digits1(digits: &str) -> u32 {
