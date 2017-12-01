@@ -2,7 +2,7 @@ fn sum_digits(digits: &str, offset: usize) -> u32 {
     let nums: Vec<u32> = digits.chars()
         .map(|c| c.to_digit(10).unwrap())
         .collect();
-    let offset = nums.iter().clone().cycle().skip(offset);
+    let offset = nums.iter().cycle().skip(offset);
     let pairs = nums.iter().zip(offset);
     let repeated = pairs.filter(|&(a, b)| a == b).map(|(a, _)| a);
     repeated.fold(0, std::ops::Add::add)
